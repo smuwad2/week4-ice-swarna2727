@@ -4,29 +4,32 @@
 	<title>Event Handling</title>
    
     <style>
-
         #circle {
             width: 150px;
             height: 150px;
-            border-radius: 50%;
+            border-radius: 50%;   
             background-color: goldenrod;
             text-align: center;
             padding-top: 60px;
+            transition: border-radius 0.3s; 
         }
-
-        /* Add CSS code here */ 
-
     </style>
 </head>
 <body>
         
-        <div id="circle" onmouseover="mOver(this)" onmouseout="mOut(this)" >
-            Mouse Over Me
-        </div>
+    <div id="circle" onmouseover="mOver(this)" onmouseout="mOut(this)">
+        Mouse Over Me
+    </div>
         
-        <script>
-           // add code here
-        </script>
+    <script>
+        function mOver(obj) {
+            obj.style.borderRadius = "0%";
+        }
+
+        function mOut(obj) {
+            obj.style.borderRadius = "50%"; 
+        }
+    </script>
                 
 </body>
 </html>

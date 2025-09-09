@@ -1,19 +1,18 @@
+<!DOCTYPE html>
 <html>
-
 <head>
-   <title>Event Handling</title>
+   <title>Shopping List</title>
 </head>
-
 <body>
 
    <h1>Shopping List</h1>
    <p>Get it done today</p>
 
-   <input type="text" id="inputText">
-   <!-- add a button here for adding new item -->
+   <input type="text" id="inputText" placeholder="Enter item">
+   <button>Enter</button>
 
-   <ul>
-      <li>Notebook<!--<button>Delete</button></li>-->
+   <ul id="shoppingList">
+      <li>Notebook</li>
       <li>Jello</li>
       <li>Spinach</li>
       <li>Rice</li>
@@ -22,11 +21,32 @@
    </ul>
 
    <script>
+      const input = document.getElementById("inputText");
+      const list = document.getElementById("shoppingList");
+      const enterBtn = document.querySelector("button");
 
-      // add code here
+      function addDeleteButton(li) {
+         const btn = document.createElement("button");
+         btn.textContent = "Delete";
+         btn.onclick = function () {
+            li.remove();
+         };
+         li.appendChild(btn);
+      }
 
+      document.querySelectorAll("#shoppingList li").forEach(addDeleteButton);
+
+      enterBtn.addEventListener("click", () => {
+         const text = input.value.trim();
+         if (text !== "") {
+            const li = document.createElement("li");
+            li.textContent = text;
+            addDeleteButton(li);
+            list.appendChild(li);
+            input.value = "";
+         }
+      });
    </script>
 
 </body>
-
 </html>

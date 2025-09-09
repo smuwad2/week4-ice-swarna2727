@@ -17,13 +17,18 @@
     <ul id="shopList"></ul>
 
     <script>
-        
-        // add code here
-        
-        
+        const select = document.getElementById("select_item");
+        const shopList = document.getElementById("shopList");
+
+        select.addEventListener("change", function() {
+            const selectedItem = select.value;
+
+            const li = document.createElement("li");
+            li.textContent = selectedItem;
+
+            shopList.appendChild(li);
+        });
     </script>
 
-    
-
-    </body>
+</body>
 </html>

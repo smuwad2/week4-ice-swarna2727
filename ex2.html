@@ -2,18 +2,17 @@
 <html>
 <head>
     <style>
-
         #div1 {
             width: 200px;
             height: 200px;
             background-color: goldenrod;
+            /* border-radius: 0%; 
+            transition: all 0.3s ease;  */
         }
-
-        /* add CSS code here */
-        
+        .circle {
+            border-radius: 50%;
+        }
     </style>
-
-    
 </head>
 <body>
     
@@ -24,9 +23,18 @@
     <button onclick="changeShape()">Make a change!</button>
 
     <script>
-        var square=true;
-       // add code here
-        
+        var square = true;
+
+        function changeShape() {
+            let div = document.getElementById("div1");
+
+            if (square) {
+                div.classList.add("circle");
+            } else {
+                div.classList.remove("circle"); 
+            }
+            square = !square;
+        }
     </script>
 
 </body>
